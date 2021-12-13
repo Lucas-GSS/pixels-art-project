@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixels Art Project</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
 </head>
 
@@ -16,54 +19,35 @@
     </header>
 
     <main>
-        <h2>Selecione uma cor abaixo</h2>
-        <table id="color-palette">
-            <tr>
-                <td class="color" id="black"></td>
-                <td class="color" id="red"></td>
-                <td class="color" id="green"></td>
-                <td class="color" id="blue"></td>
-            </tr>
-        </table>
-        <button id="clear-board">Limpar</button>
-        <table id="pixel-board">
-            <tr>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-            </tr>
-            <tr>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-            </tr>
-            <tr>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-            </tr>
-            <tr>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-            </tr>
-            <tr>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-                <td class="pixel"></td>
-            </tr>
+        <section class="palette-section">
+            <h2 class="select-color-title">Selecione uma cor abaixo:</h2>
+            <table id="color-palette">
+                <tbody>
+                    <tr class="select-color-container">
+                        <td class="color" id="black"></td>
+                        <td class="color" id="red"></td>
+                        <td class="color" id="green"></td>
+                        <td class="color" id="blue"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="set-board">
+            <h2 class="set-board-title">Defina o tamanho do quadro:</h2>
+            <input id="board-size" type="number" min="5" max="50" />
+            <button id="generate-board" type="button">VQV</button>
+            <button id="clear-board">Limpar</button>
+        </section>
 
+        <table class="board-table">
+            <tbody id="pixel-board"></tbody>
         </table>
+
+        <footer>
+            <p>Pixels Art by <a href="https://github.com/Lucas-GSS" target="blank">Lucas Gabriel</a> </p>
+        </footer>
+        
     </main>
 
 </body>
