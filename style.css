@@ -1,9 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1faf9;
+    font-family: 'Kalam', cursive;
+}
+
+header {
+    background-image: linear-gradient(to right top, #fdedfd, #f1e5fc, #e1defb, #cdd8f9, #b7d3f6);
+    display: flex;
+    font-size: 2.2rem;
+    justify-content: center;
+}
+
 .color{
     border: solid black  1px;
-    border-radius: 30px;
-    width: 50px;
-    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0.8vh 0;
+    height: 3vh;
+    width: 3vw;
 }
+
+.set-board {
+    align-items: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: 5vh auto;
+    width: 40%;
+}
+
+.set-board input, button {
+    font-size: 0.9rem;
+    margin: 1vh auto;
+}
+
+.set-board-title {
+    font-size: 1.8rem;
+    margin: 2vh auto; 
+    text-align: center;
+}
+
+.select-color-title {
+    font-size: 0.8rem;
+    margin-left: 0.5vw;
+}
+
+.select-color-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.palette-section {
+    position: fixed;
+}
+
+#board-size {
+    padding: 1vh;
+    width: 15vw;
+}
+
+#generate-board, #clear-board {
+    background-color: rgb(53, 253, 130);
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 1.2vh;
+    width: 13vw;
+}
+
+#clear-board{
+    background-color: red;
+    margin-bottom: -2vh;
+}
+
+#color-palette {
+    display: flex;
+    justify-content: center;
+}
+
 #black{
     background-color: black;
 }
@@ -16,13 +95,22 @@
 #blue{
     background-color: blue;
 }
+
+.board-table {
+    justify-content: center;
+    margin: 0 auto 2vh;
+}
+
 .pixel{
     background-color: white;
     border: solid black 1px;
-    width: 40px;
-    height: 40px;
+    height: 50px;
+    width: 50px;
 }
-#clear-board{
-    padding: 10px;
-    margin: 10px 0px 10px 80px;
+
+footer {
+    bottom: 0;
+    border-top: solid 1px black;
+    margin: 1px auto;
+    text-align: center;
 }
