@@ -1,36 +1,63 @@
-/* eslint-disable no-undef */
 const initialColor = document.querySelector('#black');
 initialColor.classList.add('selected');
 
 const colorPalette = document.querySelectorAll('.color');
 
-function setClass(event) {
+function setClass({ target }) {
   document.querySelector('.selected').classList.remove('selected');
-  event.target.classList.add('selected');
+  target.classList.add('selected');
 }
 
 for (let index = 0; index < colorPalette.length; index += 1) {
   colorPalette[index].addEventListener('click', setClass);
 }
 
-const pixels = document.querySelectorAll('.pixel');
-const selected = document.getElementsByClassName('selected');
-
-function toColor(event) {
-  event.target.style.backgroundColor = selected[0].id;
-}
-
-for (let index = 0; index < pixels.length; index += 1) {
-  pixels[index].addEventListener('click', toColor);
-}
-
 const button = document.getElementById('clear-board');
 
 function clearBoard() {
   const pixelBoard = document.querySelectorAll('.pixel');
-  for (const key of pixelBoard) {
-    key.style.backgroundColor = 'white';
-  };
+  for (let pixel = 0; pixel <= pixelBoard.length; pixel += 1) {
+    pixelBoard[pixel].style.backgroundColor = 'white';
+  }
+}
+
+const selected = document.getElementsByClassName('selected');
+
+function toColor({ target }) {
+  const pixelToColor = target;
+  pixelToColor.style.backgroundColor = selected[0].id;
 }
 
 button.addEventListener('click', clearBoard);
+
+const buttonGenerateBoard = document.querySelector('#generate-board');
+
+function generatePixel(value) {
+  const tablePixelsBody = document.querySelector('#pixel-board');
+  for (let line = 1; line <= value; line += 1) {
+    const createTableRow = document.createElement('tr');
+    createTableRow.className = 'table-row';
+    for (let collumn = 1; collumn <= value; collumn += 1) {
+      const createTableData = document.createElement('td');
+      createTableData.className = 'pixel';
+      createTableData.addEventListener('click', toColor);
+      createTableRow.appendChild(createTableData);
+    }
+    tablePixelsBody.appendChild(createTableRow);
+  }
+  return tablePixelsBody;
+}
+
+function generateBoard() {
+  const inputBoard = document.querySelector('#board-size').value;
+  const tablePixelsBody = document.querySelector('#pixel-board');
+  const pixels = document.querySelectorAll('.table-row');
+  const inputBoardToNumber = parseInt(inputBoard, 10);
+  if (tablePixelsBody.children.length > 0) {
+    pixels.forEach((el) => el.remove());
+  }
+  const boardSize = inputBoardToNumber > 5 ? generatePixel(inputBoardToNumber) : generatePixel(5);
+  return boardSize;
+}
+
+buttonGenerateBoard.addEventListener('click', generateBoard);
